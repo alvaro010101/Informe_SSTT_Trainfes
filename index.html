@@ -472,9 +472,8 @@ function CategoryDonut({
   return /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
-      alignItems: "center",
-      gap: 24,
-      flexWrap: "wrap"
+      flexDirection: "column",
+      alignItems: "center"
     }
   }, /*#__PURE__*/React.createElement("svg", {
     viewBox: "0 0 200 200",
@@ -489,15 +488,17 @@ function CategoryDonut({
   }))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
-      flexDirection: "column",
-      gap: 6
+      flexWrap: "wrap",
+      justifyContent: "center",
+      gap: 14,
+      marginTop: 6
     }
   }, data.map((d, i) => /*#__PURE__*/React.createElement("div", {
     key: i,
     style: {
       display: "flex",
       alignItems: "center",
-      gap: 8,
+      gap: 6,
       fontSize: 12
     }
   }, /*#__PURE__*/React.createElement("span", {
@@ -636,6 +637,7 @@ function InformeSSTT() {
     URL.revokeObjectURL(url);
   }
   return /*#__PURE__*/React.createElement("div", {
+    className: "app-shell",
     style: {
       fontFamily: "'Helvetica Neue', Arial, sans-serif",
       color: INK,
@@ -645,11 +647,16 @@ function InformeSSTT() {
     }
   }, /*#__PURE__*/React.createElement("style", null, `
         .print-only { display: none; }
+        @page { size: letter; margin: 16mm 14mm; }
         @media print {
           .no-print { display: none !important; }
           .print-only { display: block !important; }
-          .report-page { box-shadow: none !important; margin: 0 !important; max-width: none !important; }
+          .app-shell { background: white !important; padding: 0 !important; }
+          .report-page { box-shadow: none !important; margin: 0 !important; max-width: none !important; padding: 0 !important; border-radius: 0 !important; }
           body { background: white !important; }
+          .report-section { break-inside: avoid; page-break-inside: avoid; }
+          h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
+          svg { break-inside: avoid; page-break-inside: avoid; }
         }
         textarea, input, select { font-family: inherit; }
         .field-label { font-size: 12px; font-weight: 600; color: #6B6F80; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; display: block; }
@@ -844,6 +851,7 @@ function InformeSSTT() {
       fontSize: 14
     }
   }, "El informe se generar\xE1 aqu\xED una vez que importes los tickets del per\xEDodo.") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("section", {
+    className: "report-section",
     style: {
       marginBottom: 34
     }
@@ -873,6 +881,7 @@ function InformeSSTT() {
   }, tipoData.map(d => /*#__PURE__*/React.createElement("li", {
     key: d.name
   }, /*#__PURE__*/React.createElement("strong", null, d.name, ":"), " ", d.value, " casos (", pct(d.value, filtered.length), ")")))), /*#__PURE__*/React.createElement("section", {
+    className: "report-section",
     style: {
       marginBottom: 34
     }
@@ -926,6 +935,7 @@ function InformeSSTT() {
       lineHeight: 1.6
     }
   }, hallazgosSoporte)), /*#__PURE__*/React.createElement("section", {
+    className: "report-section",
     style: {
       marginBottom: 34
     }
@@ -995,6 +1005,7 @@ function InformeSSTT() {
   }, lotes.map(([lote, value]) => /*#__PURE__*/React.createElement("li", {
     key: lote
   }, lote, ": ", value, " caso", value !== 1 ? "s" : "", "."))))), /*#__PURE__*/React.createElement("section", {
+    className: "report-section",
     style: {
       marginBottom: 20
     }
@@ -1018,6 +1029,7 @@ function InformeSSTT() {
       whiteSpace: "pre-wrap"
     }
   }, conclusiones)), /*#__PURE__*/React.createElement("div", {
+    className: "report-section",
     style: {
       marginTop: 50,
       paddingTop: 18,
