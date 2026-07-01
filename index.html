@@ -740,7 +740,9 @@ function InformeSSTT() {
           .app-shell { background: white !important; padding: 0 !important; }
           .report-page { box-shadow: none !important; margin: 0 !important; max-width: none !important; padding: 0 !important; border-radius: 0 !important; }
           body { background: white !important; }
-          .report-section { break-inside: avoid; page-break-inside: avoid; }
+          .report-section { break-inside: auto; }
+          .avoid-break { break-inside: avoid; page-break-inside: avoid; }
+          .report-section { margin-bottom: 22px !important; }
           h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
           svg { break-inside: avoid; page-break-inside: avoid; }
         }
@@ -964,7 +966,9 @@ function InformeSSTT() {
       lineHeight: 1.6,
       marginBottom: 16
     }
-  }, "El presente documento detalla los requerimientos generados entre el", " ", /*#__PURE__*/React.createElement("strong", null, formatDateEs(new Date(startDate + "T00:00:00"))), " y el", " ", /*#__PURE__*/React.createElement("strong", null, formatDateEs(new Date(endDate + "T00:00:00"))), ". En total se gestionaron", " ", /*#__PURE__*/React.createElement("strong", null, filtered.length, " requerimientos"), ", comprendidos de la siguiente manera."), /*#__PURE__*/React.createElement(CategoryDonut, {
+  }, "El presente documento detalla los requerimientos generados entre el", " ", /*#__PURE__*/React.createElement("strong", null, formatDateEs(new Date(startDate + "T00:00:00"))), " y el", " ", /*#__PURE__*/React.createElement("strong", null, formatDateEs(new Date(endDate + "T00:00:00"))), ". En total se gestionaron", " ", /*#__PURE__*/React.createElement("strong", null, filtered.length, " requerimientos"), ", comprendidos de la siguiente manera."), /*#__PURE__*/React.createElement("div", {
+    className: "avoid-break"
+  }, /*#__PURE__*/React.createElement(CategoryDonut, {
     data: tipoData,
     emptyLabel: "Sin tickets en este rango"
   }), /*#__PURE__*/React.createElement("ul", {
@@ -973,14 +977,15 @@ function InformeSSTT() {
       lineHeight: 1.8,
       paddingLeft: 18,
       marginTop: 10,
-      marginBottom: 16
+      marginBottom: 0
     }
   }, tipoData.map(d => /*#__PURE__*/React.createElement("li", {
     key: d.name
-  }, /*#__PURE__*/React.createElement("strong", null, d.name, ":"), " ", d.value, " casos (", pct(d.value, filtered.length), ")"))), /*#__PURE__*/React.createElement("p", {
+  }, /*#__PURE__*/React.createElement("strong", null, d.name, ":"), " ", d.value, " casos (", pct(d.value, filtered.length), ")")))), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 13.5,
-      lineHeight: 1.6
+      lineHeight: 1.6,
+      marginTop: 16
     }
   }, "El objetivo de este informe es identificar los puntos cr\xEDticos y establecer estrategias preventivas que reduzcan el volumen de incidencias en los pr\xF3ximos per\xEDodos.")), /*#__PURE__*/React.createElement("section", {
     className: "report-section",
@@ -999,10 +1004,14 @@ function InformeSSTT() {
       fontSize: 13.5,
       marginBottom: 12
     }
-  }, "Para este periodo se analizaron ", /*#__PURE__*/React.createElement("strong", null, soporte.length, " casos"), " registrados y clasificados como soporte t\xE9cnico, que se distribuyen de la siguiente manera:"), /*#__PURE__*/React.createElement(CategoryDonut, {
+  }, "Para este periodo se analizaron ", /*#__PURE__*/React.createElement("strong", null, soporte.length, " casos"), " registrados y clasificados como soporte t\xE9cnico, que se distribuyen de la siguiente manera:"), /*#__PURE__*/React.createElement("div", {
+    className: "avoid-break"
+  }, /*#__PURE__*/React.createElement(CategoryDonut, {
     data: soporteData,
     emptyLabel: "Sin casos de soporte t\xE9cnico en este rango"
-  }), soporteCats.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h3", {
+  })), soporteCats.length > 0 && /*#__PURE__*/React.createElement("div", {
+    className: "avoid-break"
+  }, /*#__PURE__*/React.createElement("h3", {
     style: {
       fontSize: 13.5,
       fontWeight: 700,
@@ -1018,7 +1027,9 @@ function InformeSSTT() {
     }
   }, soporteCats.map(([name, value]) => /*#__PURE__*/React.createElement("li", {
     key: name
-  }, /*#__PURE__*/React.createElement("strong", null, name, ":"), " ", value, " caso", value !== 1 ? "s" : "", ".")))), /*#__PURE__*/React.createElement("h3", {
+  }, /*#__PURE__*/React.createElement("strong", null, name, ":"), " ", value, " caso", value !== 1 ? "s" : "", ".")))), /*#__PURE__*/React.createElement("div", {
+    className: "avoid-break"
+  }, /*#__PURE__*/React.createElement("h3", {
     style: {
       fontSize: 13.5,
       fontWeight: 700,
@@ -1039,7 +1050,7 @@ function InformeSSTT() {
     dangerouslySetInnerHTML: {
       __html: hallazgosSoporte
     }
-  })), /*#__PURE__*/React.createElement("section", {
+  }))), /*#__PURE__*/React.createElement("section", {
     className: "report-section",
     style: {
       marginBottom: 34
@@ -1056,10 +1067,14 @@ function InformeSSTT() {
       fontSize: 13.5,
       marginBottom: 12
     }
-  }, "De igual manera se analizaron los ", /*#__PURE__*/React.createElement("strong", null, servicio.length, " casos"), " registrados para el periodo, clasificados como servicio t\xE9cnico, que se distribuyen de la siguiente manera:"), /*#__PURE__*/React.createElement(CategoryDonut, {
+  }, "De igual manera se analizaron los ", /*#__PURE__*/React.createElement("strong", null, servicio.length, " casos"), " registrados para el periodo, clasificados como servicio t\xE9cnico, que se distribuyen de la siguiente manera:"), /*#__PURE__*/React.createElement("div", {
+    className: "avoid-break"
+  }, /*#__PURE__*/React.createElement(CategoryDonut, {
     data: servicioData,
     emptyLabel: "Sin casos de servicio t\xE9cnico en este rango"
-  }), servicioCats.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h3", {
+  })), servicioCats.length > 0 && /*#__PURE__*/React.createElement("div", {
+    className: "avoid-break"
+  }, /*#__PURE__*/React.createElement("h3", {
     style: {
       fontSize: 13.5,
       fontWeight: 700,
@@ -1075,7 +1090,9 @@ function InformeSSTT() {
     }
   }, servicioCats.map(([name, value]) => /*#__PURE__*/React.createElement("li", {
     key: name
-  }, /*#__PURE__*/React.createElement("strong", null, name, ":"), " ", value, " caso", value !== 1 ? "s" : "", ".")))), /*#__PURE__*/React.createElement("h3", {
+  }, /*#__PURE__*/React.createElement("strong", null, name, ":"), " ", value, " caso", value !== 1 ? "s" : "", ".")))), /*#__PURE__*/React.createElement("div", {
+    className: "avoid-break"
+  }, /*#__PURE__*/React.createElement("h3", {
     style: {
       fontSize: 13.5,
       fontWeight: 700,
@@ -1096,7 +1113,9 @@ function InformeSSTT() {
     dangerouslySetInnerHTML: {
       __html: hallazgosServicio
     }
-  }), lotes.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h3", {
+  })), lotes.length > 0 && /*#__PURE__*/React.createElement("div", {
+    className: "avoid-break"
+  }, /*#__PURE__*/React.createElement("h3", {
     style: {
       fontSize: 13.5,
       fontWeight: 700,
@@ -1139,7 +1158,7 @@ function InformeSSTT() {
       __html: conclusiones
     }
   })), /*#__PURE__*/React.createElement("div", {
-    className: "report-section",
+    className: "avoid-break",
     style: {
       marginTop: 50,
       paddingTop: 18,
