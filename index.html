@@ -523,7 +523,7 @@ function CategoryDonut({
     style: {
       color: "#9A9EAE"
     }
-  }, "(", d.value, ")")))));
+  }, "(", d.value, " \xB7 ", pct(d.value, total), ")")))));
 }
 function InformeSSTT() {
   const [tickets, setTickets] = useState([]);
