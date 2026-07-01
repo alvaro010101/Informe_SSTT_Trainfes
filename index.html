@@ -649,6 +649,7 @@ function InformeSSTT() {
         .print-only { display: none; }
         @page { size: letter; margin: 16mm 14mm; }
         @media print {
+          * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
           .no-print { display: none !important; }
           .print-only { display: block !important; }
           .app-shell { background: white !important; padding: 0 !important; }
